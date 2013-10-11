@@ -29,10 +29,33 @@ Dial your number here:
     Twilio.Device.connect(function (conn) {
         $("#log").text("Successfully established call");
     });
+
+    /* Log a message when a call disconnects. */
+    Twilio.Device.disconnect(function (conn) {
+        $("#log").text("Call ended");
+    });
+
+    /* A function to end a connection to Twilio. */
+    function hangup() {
+        Twilio.Device.disconnectAll();
+    }
+
+    /* Listen for incoming connections */
+    Twilio.Device.incoming(function (conn) {
+      $("#log").text("Incoming connection from " + conn.parameters.From);
+      // accept the incoming connection and start two-way audio
+      conn.accept();
+    });
  
     /* Connect to Twilio when we call this function. */
     function call() {
-        Twilio.Device.connect();
+      // get the phone number to connect the call to
+      params = {"PhoneNumber": $("#number").val()};
+      Twilio.Device.connect(params);
+    }
+
+    function hangup() {
+        Twilio.Device.disconnectAll();
     }
     </script>
   </head>
@@ -41,6 +64,12 @@ Dial your number here:
     <button class="call" onclick="call();">
       Call
     </button>
+    <button class="hangup" onclick="hangup();">
+      Hangup
+    </button>
+
+    <input type="text" id="number" name="number"
+      placeholder="Enter a phone number to call"/>
   
     <div id="log">Loading pigeons...</div>
   </body>

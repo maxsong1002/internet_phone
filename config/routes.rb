@@ -8,6 +8,8 @@ InternetPhone::Application.routes.draw do
 
   get 'call' => 'calls#new'
 
+  post 'voice' => 'calls#incoming_call'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
