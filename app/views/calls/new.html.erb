@@ -1,16 +1,12 @@
-Dial your number here: 
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello Client Monkey 1</title>
+    <title>My personal internet phone</title>
     <script type="text/javascript"
       src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
     <script type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
     </script>
-    <link href="//static0.twilio.com/packages/quickstart/client.css"
-      type="text/css" rel="stylesheet" />
     <script type="text/javascript">
   
     /* Create the Client with a Capability Token */
@@ -59,18 +55,26 @@ Dial your number here:
     }
     </script>
   </head>
-  <body>
- 
-    <button class="call" onclick="call();">
-      Call
-    </button>
-    <button class="hangup" onclick="hangup();">
-      Hangup
-    </button>
 
-    <input type="text" id="number" name="number"
-      placeholder="Enter a phone number to call"/>
-  
-    <div id="log">Loading pigeons...</div>
+
+  <body>
+    <div class="banner">
+      <h1 class="banner-head">Call someone you love</h1>
+    </div>
+    <div class="outer-box">
+      <div id="phone-dial">
+          Number: 
+          <input type="text" id="dial-number" name="number" placeholder="1-267-234-1111"/>
+      </div>
+      <div id="call-buttons">
+        <button class="pure-button" onclick="call();">
+          Call
+        </button>
+        <button class="pure-button" onclick="hangup();">
+          Hang up
+        </button>
+        <div id="log">Status: The internet phone is getting ready..</div>
+      </div>
+    </div>
   </body>
 </html>
