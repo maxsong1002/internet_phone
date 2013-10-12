@@ -1,4 +1,6 @@
 class CallsController < ApplicationController
+    skip_before_filter  :verify_authenticity_token
+
     def new
         # Find these values at twilio.com/user/account
         account_sid = 'AC836fb64c292cc774507c412443b7adb1'
