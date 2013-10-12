@@ -28,5 +28,6 @@ class CallsController < ApplicationController
             end
         end
         response.text
+        redirect_to '/call'
     end
 end
