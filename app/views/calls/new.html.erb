@@ -46,7 +46,7 @@
     /* Connect to Twilio when we call this function. */
     function call() {
       // get the phone number to connect the call to
-      params = {"PhoneNumber": $("#number").val()};
+      params = {"PhoneNumber": $("#dial-number").val()};
       Twilio.Device.connect(params);
     }
 
