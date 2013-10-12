@@ -45,5 +45,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'twilio-ruby'
-
-#gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production
