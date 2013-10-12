@@ -46,7 +46,7 @@
     /* Connect to Twilio when we call this function. */
     function call() {
       // get the phone number to connect the call to
-      params = {"PhoneNumber": $("#dial-number").val()};
+      params = {"PhoneNumber": $("#number").val()};
       Twilio.Device.connect(params);
     }
 
@@ -63,8 +63,7 @@
     </div>
     <div class="outer-box">
       <div id="phone-dial">
-          Number: 
-          <input type="text" id="dial-number" name="number" placeholder="1-267-234-1111"/>
+          Dial <input type="text" id="number" name="number" placeholder="1-267-234-1111"/>
       </div>
       <div id="call-buttons">
         <button class="pure-button" onclick="call();">
