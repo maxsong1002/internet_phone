@@ -13,23 +13,6 @@ class CallsController < ApplicationController
         @token = capability.generate
     end
 
-    def incoming_call
-        number = params[:PhoneNumber]
-        caller_id = "+14702354516"
-        response = Twilio::TwiML::Response.new do |r|
-            # Should be your Twilio Number or a verified Caller ID
-            r.Dial :callerId => caller_id do |d|
-                if /^[\d\+\-\(\) ]+$/.match(number)
-                    d.Number(CGI::escapeHTML number)
-                else
-                    d.Client 'internet_phone'
-                end
-            end
-        end
-        response.text
-        redirect_to '/call'
-    end
-
     def outgoing_call
         number = params[:PhoneNumber]
         caller_id = "+14702354516"
