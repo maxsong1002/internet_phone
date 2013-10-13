@@ -11,7 +11,7 @@ class CallsController < ApplicationController
         @token = capability.generate
     end
 
-    def outgoing_call
+    def voice
         number = params[:PhoneNumber]
         caller_id = "+14702354516"
         response = Twilio::TwiML::Response.new do |r| # response to Twilio server's request
