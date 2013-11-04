@@ -3,8 +3,8 @@ class CallsController < ApplicationController
 
     def new
         # Find these values at twilio.com/user/account
-        account_sid = 'AC836fb64c292cc774507c412443b7adb1'
-        auth_token = '9085867319e82a04eb3a5c68ad7ce310'
+        account_sid = ENV['ACCOUNT_SID']
+        auth_token = ENV['AUTH_TOKEN']
         capability = Twilio::Util::Capability.new account_sid, auth_token
         capability.allow_client_outgoing "AP4f310830a7a8eb025f0519bd997663c7"
         capability.allow_client_incoming "internet_phone"

@@ -41,6 +41,7 @@
       $("#log").text("Incoming connection from " + conn.parameters.From);
       // accept the incoming connection and start two-way audio
       conn.accept();
+      $("#log").text("Now talking!");
     });
  
     /* Connect to Twilio when we call this function. */
